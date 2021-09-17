@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{{ .Title }} | selene466</title>
+    <style>
+      body {
+        font-family: sans;
+        font-size: 1em;
+        background-color: #fafafa;
+        color: #222;
+        max-width: 800px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 15px;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      ul.nav {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      ul.nav li {
+        padding: 0 25px;
+      }
+
+      header,
+      footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+      }
+
+      header {
+        border-bottom: 1px solid #888;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        border-top: 1px solid #888;
+      }
+
+      main {
+        margin: 20px 0;
+      }
+
+      #search, #result {
+        margin: 0 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title">Hugo Search + FuseJS Demo</h1>
+      </div>
+      <div>
+        <ul class="nav">
+          <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+          <li><a href="{{ .Site.BaseURL }}search/">Search</a></li>
+        </ul>
+      </div>
+    </header>
+    {{- block "main" . -}} {{ end }}
+    <footer>
+      <div>
+        &copy; {{ now.Format "2006" }}
+        <a href="//github.com/selene466" target="_blank">selene466</a>.
+      </div>
+      <div>hugo v0.87.0-B0C541E4 linux/amd64</div>
+    </footer>
+    {{- if eq .Section "search" }}
+    <!-- Fuse JS with statically -->
+    <script
+      src="https://cdn.statically.io/gh/krisk/Fuse/master/dist/fuse.basic.min.js"
+      async
+      defer
+    ></script>
+    {{ end }}
+  </body>
+</html>

@@ -1,0 +1,6 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'selene466 Site'
+
+[outputs]
+  home          = ["html", "json"]

@@ -1,0 +1,11 @@
+{{- define "main" }}
+    <main>
+      <ul>
+        {{- range (where (where .Site.Pages "Section" "blog") "Kind" "eq" "page") }}
+        <li>
+          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a> - {{ .Summary  | truncate 20 }}
+        </li>
+      {{ end -}}
+      </ul>
+    </main>
+{{- end -}}
